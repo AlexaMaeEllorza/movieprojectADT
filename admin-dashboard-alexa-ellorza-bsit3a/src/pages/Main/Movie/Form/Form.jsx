@@ -158,7 +158,7 @@ const Form = () => {
                 <input
                   type='text'
                   value={selectedMovie.title}
-                  readOnly={!!movieId}
+                  onChange={(e) => setSelectedMovie({ ...selectedMovie, title: e.target.value })}
                 />
               </div>
               <div className='field'>
@@ -166,7 +166,7 @@ const Form = () => {
                 <textarea
                   rows={10}
                   value={selectedMovie.overview}
-                  readOnly={!!movieId}
+                  onChange={(e) => setSelectedMovie({ ...selectedMovie, overview: e.target.value })}
                 />
               </div>
               <div className='field'>
@@ -174,7 +174,7 @@ const Form = () => {
                 <input
                   type='text'
                   value={selectedMovie.popularity}
-                  readOnly={!!movieId}
+                  onChange={(e) => setSelectedMovie({ ...selectedMovie, popularity: e.target.value })}
                 />
               </div>
               <div className='field'>
@@ -182,7 +182,7 @@ const Form = () => {
                 <input
                   type='text'
                   value={selectedMovie.release_date}
-                  readOnly={!!movieId}
+                  onChange={(e) => setSelectedMovie({ ...selectedMovie, release_date: e.target.value })}
                 />
               </div>
               <div className='field'>
@@ -190,7 +190,7 @@ const Form = () => {
                 <input
                   type='text'
                   value={selectedMovie.vote_average}
-                  readOnly={!!movieId}
+                  onChange={(e) => setSelectedMovie({ ...selectedMovie, vote_average: e.target.value })}
                 />
               </div>
             </>
