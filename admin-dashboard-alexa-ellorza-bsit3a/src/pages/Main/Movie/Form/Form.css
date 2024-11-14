@@ -1,0 +1,83 @@
+.search-container {
+  border: 1px solid rgba(0, 0, 0, 0.3); /* Thin border with slight transparency */
+  padding: 10px; /* Add some padding for better spacing */
+  border-radius: 4px; /* Optional: adds rounded corners */
+}
+
+.display-movie {
+  max-height: 350px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+  border: 1px solid rgba(0, 0, 0, 0.3); /* Thin border with slight transparency */
+  border-radius: 4px; /* Optional: adds rounded corners */
+  padding: 10px; /* Add some padding for better spacing */
+}
+
+/* Existing styles for hiding scrollbars and search results */
+.searched-movie {
+  max-height: 150px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+/* Hide scrollbar for WebKit browsers */
+.searched-movie::-webkit-scrollbar {
+  display: none;
+}
+
+.search-container p {
+  padding: 8px; /* Add some padding for better click area */
+}
+
+.search-container p:hover {
+  background-color: rgb(255, 162, 0); /* Change to light orange */
+  color: rgb(255, 255, 255); /* Change text color to white */
+}
+
+.poster-image {
+  width: 150px;
+  height: auto;
+}
+
+
+.save-button {
+  margin-top: 7px;
+  background-color: #ff6f00;
+  color: #ffffff;
+  padding: 0.55rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  width: 15%;
+  z-index: 2; /* Ensure button is above the blurred background */
+}
+
+.save-button:hover {
+  background-color: #ffffff;
+  color: #ff6f00;
+  border: 2px solid #ff6f00;  
+}
+
+.search-button {
+  margin-left: 5px;
+  background-color: #ff6f00;
+  color: #ffffff;
+  padding: 0.45rem 0.30rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  width: 5%;
+  z-index: 2; /* Ensure button is above the blurred background */
+}
+
+.search-button:hover {
+  background-color: #ffffff;
+  color: #ff6f00;
+  border: 2px solid #ff6f00;  
+}
