@@ -61,6 +61,7 @@ const Lists = () => {
             <tr>
               <th>ID</th>
               <th>Title</th>
+              <th>Popularity</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -69,6 +70,7 @@ const Lists = () => {
               <tr>
                 <td>{movie.id}</td>
                 <td>{movie.title}</td>
+                <td>{movie.popularity}</td>
                 <td>
                   <button
                     type='button'
