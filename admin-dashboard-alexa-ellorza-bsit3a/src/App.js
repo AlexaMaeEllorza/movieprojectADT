@@ -17,17 +17,24 @@ const router = createBrowserRouter([
   },
   {
     path: '/register',
-    element: <Register />,
+    element: <Register />
+  },
+  {
+    path: 'admin/login',
+    element: <Login />
+  },
+  {
+    path: 'admin/register',
+    element: <Register />
   },
   {
     path: '/main',
     element: <Main />,
     children: [
-      //Temporarily disabled the dashboard route
-      // {
-      //   path: '/main/dashboard',
-      //   element: <Dashboard />,
-      // },
+      {
+        path: '/main/dashboard',
+        element: <Dashboard />,
+      },
       {
         path: '/main/movies',
         element: <Movie />,

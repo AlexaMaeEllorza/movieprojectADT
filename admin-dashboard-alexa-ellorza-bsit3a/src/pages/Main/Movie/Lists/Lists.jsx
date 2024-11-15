@@ -47,6 +47,7 @@ const Lists = () => {
     <div className='lists-container'>
       <div className='create-container'>
         <button
+        className="button-list"
           type='button'
           onClick={() => {
             navigate('/main/movies/form');
@@ -62,7 +63,9 @@ const Lists = () => {
               <th>ID</th>
               <th>Title</th>
               <th>Popularity</th>
+              <th>Release Date</th>
               <th>Actions</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -71,8 +74,10 @@ const Lists = () => {
                 <td>{movie.id}</td>
                 <td>{movie.title}</td>
                 <td>{movie.popularity}</td>
+                <td>{movie.dateCreated}</td>
                 <td>
                   <button
+                  className="button-list"
                     type='button'
                     onClick={() => {
                       navigate('/main/movies/form/' + movie.id);
@@ -80,7 +85,7 @@ const Lists = () => {
                   >
                     Edit
                   </button>
-                  <button type='button' onClick={() => handleDelete(movie.id)}>
+                  <button className="button-list" type='button' onClick={() => handleDelete(movie.id)}>
                     Delete
                   </button>
                 </td>

@@ -63,18 +63,18 @@ function Register() {
 
     try {
       const res = await axios.post('/user/register', registerData);
-      console.log(res);
+      console.log(res.data); // Log the server response to check if the role is correct
       navigate('/');
     } catch (e) {
       console.error(e);
       setStatus('idle');
-
       if (e.response && e.response.status === 409) {
         setEmailError('Email already exists. Please use a different email.');
       } else {
         setEmailError('An unexpected error occurred. Please try again later.');
       }
     }
+    
   };
 
   return (

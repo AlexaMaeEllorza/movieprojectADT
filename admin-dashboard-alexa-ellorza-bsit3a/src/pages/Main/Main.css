@@ -10,6 +10,7 @@
 .Main .container .outlet {
   flex-grow: 3;
   padding: 1rem;
+  
 }
 .Main .container .navigation {
   background-color: rgb(255, 185, 109);

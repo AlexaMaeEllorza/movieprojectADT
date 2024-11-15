@@ -1,8 +1,7 @@
-
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Arial', sans-serif; /* Retain the simple, clean font */
   margin: 0;
-  background-color: #fffaf3;
+  background-color: #fffaf3; /* Light, warm background */
   color: #4a4a4a;
 }
 
@@ -17,67 +16,86 @@ body {
   text-align: right;
 }
 
-button {
-  background-color: #ff7a29;
+.button-list {
+  background-color: #ff7a29; /* Retain vibrant orange */
   color: #ffffff;
   border: none;
   padding: 10px 20px;
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  border-radius: 8px; /* More rounded for modern feel */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-button:hover {
-  background-color: #e66a20;
+.button-list:hover {
+  background-color: #e66a20; /* Slightly darker shade */
   transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-button:active {
+.button-list:active {
   background-color: #cc5c1b;
 }
 
 .table-container {
   overflow-x: auto;
+  max-height: 650px; /* Vertical scrolling for long tables */
+  overflow-y: auto;
+  border-radius: 8px; /* Rounded corners for modern style */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  background-color: #ffffff; /* Clean white background */
 }
 
 .movie-lists {
   width: 100%;
-  border-collapse: collapse;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
 .movie-lists th,
 .movie-lists td {
   padding: 15px;
   text-align: left;
+  border-bottom: 1px solid #f4b183; /* Retain subtle orange tone */
 }
 
 .movie-lists th {
-  background-color: #ff8c42;
+  background-color: #ff8c42; /* Retain warm orange header */
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  position: sticky;
+  top: 0; /* Sticky header for better UX */
+  z-index: 1;
+}
+
+.movie-lists tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.movie-lists tbody tr:hover {
+  background-color: #ffd9b8; /* Warm hover effect */
 }
 
 .movie-lists tbody tr:nth-child(odd) {
-  background-color: #ffe3cc;
+  background-color: #ffe3cc; /* Retain alternating row colors */
 }
 
 .movie-lists tbody tr:nth-child(even) {
   background-color: #fff3e6;
 }
 
-.movie-lists tbody tr:hover {
-  background-color: #ffd9b8;
-}
-
 .movie-lists td {
-  border-bottom: 1px solid #f4b183;
+  font-size: 14px; /* Retain readable font size */
 }
 
 .movie-lists td button {
   margin-right: 10px;
+}
+
+.movie-lists td:last-child {
+  display: flex;
+  gap: 10px; /* Space between action buttons */
 }

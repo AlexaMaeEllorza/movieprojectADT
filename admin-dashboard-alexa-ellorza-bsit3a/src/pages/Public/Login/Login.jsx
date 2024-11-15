@@ -64,37 +64,37 @@ function Login() {
 
   return (
     <div className='Login'>
-      <div className='main-container'>
+      <div className='loginmain-container'>
         <h3 className='h3-login'>LOGIN</h3>
         <form>
-          <div className='form-container'>
+          <div className='loginform-container'>
             <div>
-              <div className='form-group'>
+              <div className='loginform-group'>
                 <label>E-mail:</label>
                 <input
                   type='text'
                   name='email'
                   ref={emailRef}
                   onChange={(e) => handleOnChange(e, 'email')}
-                  className="modern-textbox"
+                  className="loginmodern-textbox"
                 />
                 {debounceState && isFieldsDirty && email === '' && (
-                  <span className='errors'>This field is required</span>
+                  <span className='loginerrors'>This field is required</span>
                 )}
               </div>
             </div>
             <div>
-              <div className='form-group'>
+              <div className='loginform-group'>
                 <label>Password:</label>
                 <input
                   type={isShowPassword ? 'text' : 'password'}
                   name='password'
                   ref={passwordRef}
                   onChange={(e) => handleOnChange(e, 'password')}
-                  className="modern-textbox"
+                  className="loginmodern-textbox"
                 />
                 {debounceState && isFieldsDirty && password === '' && (
-                  <span className='errors'>This field is required</span>
+                  <span className='loginerrors'>This field is required</span>
                 )}
               </div>
             </div>
@@ -103,9 +103,9 @@ function Login() {
             </div>
 
             {/* Display error message if login fails */}
-            {errorMessage && <div className='errors'>{errorMessage}</div>}
+            {errorMessage && <div className='loginerrors'>{errorMessage}</div>}
 
-            <div className='submit-container'>
+            <div className='loginsubmit-container'>
               <button
                 className="login-button"
                 type='button'
