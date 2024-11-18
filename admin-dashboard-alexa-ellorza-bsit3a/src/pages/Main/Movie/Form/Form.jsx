@@ -285,7 +285,7 @@ const Form = () => {
                         type="button"
                         className="save-button btn-success"
                         onClick={handleSave}
-                        disabled={!selectedMovie}
+                        enabled={!selectedMovie}
                     >
                         {movieId ? 'Update' : 'Save'}
                     </button>
