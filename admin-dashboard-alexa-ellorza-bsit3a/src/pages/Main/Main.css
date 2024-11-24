@@ -9,7 +9,7 @@
 }
 .Main .container .outlet {
   flex-grow: 3;
-  padding: 1rem;
+  padding: .5rem;
   
 }
 .Main .container .navigation {

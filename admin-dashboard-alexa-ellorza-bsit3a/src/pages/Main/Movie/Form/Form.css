@@ -1,36 +1,32 @@
-/* General Container Styles */
 .moviecontainer {
   margin-top: 5rem;
   max-height: 80vh;
   overflow-x: hidden;
   overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-/* Hide scrollbar for WebKit browsers */
 .moviecontainer::-webkit-scrollbar {
   display: none;
 }
 
-/* Search Section */
 .search-container {
   border: 1px solid rgba(0, 0, 0, 0.3);
   padding: 10px;
   border-radius: 4px;
   align-items: center;
-  
 }
 
 .search-container input {
   margin-right: 10px;
-  width: 100%; /* Ensure it fills the container */
-  max-width: 500px; /* Max width for the input field */
+  width: 100%;
+  max-width: 500px;
 }
 
 .search-container button {
-  width: 120px; /* Matches button width */
-  background-color: #ff7b00; /* Modernized orange */
+  width: 120px;
+  background-color: #ff7b00;
   color: white;
   border: none;
   border-radius: 4px;
@@ -39,7 +35,7 @@
 }
 
 .search-container button:hover {
-  background-color: #ff9e42; /* Lighter orange */
+  background-color: #ff9e42;
   transform: scale(1.05);
 }
 
@@ -52,7 +48,6 @@
   margin-top: 10px;
 }
 
-/* Hide scrollbar for WebKit browsers */
 .searched-movie::-webkit-scrollbar {
   display: none;
 }
@@ -64,11 +59,10 @@
 }
 
 .searched-movie p:hover {
-  background-color: #ff7b00; /* Modernized orange */
+  background-color: #ff7b00;
   color: white;
 }
 
-/* Pagination Controls */
 .pagination-container {
   margin: 1rem;
   text-align: center;
@@ -77,7 +71,7 @@
 .pagination-container button {
   width: 100px;
   padding: 8px 16px;
-  background-color: #ff7b00; /* Modernized orange */
+  background-color: #ff7b00;
   color: white;
   border: none;
   border-radius: 4px;
@@ -85,7 +79,7 @@
 }
 
 .pagination-container button:hover {
-  background-color: #ff9e42; /* Lighter orange */
+  background-color: #ff9e42;
   transform: scale(1.05);
 }
 
@@ -93,32 +87,37 @@
   margin: 0 15px;
 }
 
-/* Movie Display Section */
-.poster-image {
-  max-width: 50%;
-  max-height: 50%;
-  border-radius: 8px;
-  margin-bottom: 15px;
+.row {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .poster-col {
+  flex: 1;
   max-width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Movie Details Section */
 .movie-details {
-  max-width: 600px;
-  gap: 10px;
-}
-
-.movie-info {
   flex: 1;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* Form Fields */
+.poster-image {
+  max-width: 75%;
+  max-height: 75%;
+  border-radius: 8px;
+}
+
 .movieform-group input,
 .movieform-group textarea {
   width: 90%;
@@ -130,11 +129,10 @@
   margin-top: 20px;
 }
 
-/* Save Button */
 .save-button {
   margin-top: 20px;
   width: 100px;
-  background-color: #ff7b00; /* Modernized orange */
+  background-color: #ff7b00;
   color: white;
   border: none;
   border-radius: 5px;
@@ -148,7 +146,6 @@
   border: 2px solid #ff7b00;
 }
 
-/* Shared Button Styles */
 .moviebtn {
   cursor: pointer;
 }
@@ -160,31 +157,29 @@
   scrollbar-width: none;
 }
 
-/* Searched Movies */
 .search-input {
   width: 100%;
-  max-width: 500px; /* Adjust input width */
+  max-width: 500px;
 }
 
 .search-button {
   width: 120px;
 }
 
-/* Not Found Message */
 .not-found-message {
   opacity: 0.6;
-  background-color: #ff4f00; /* More vibrant red-orange */
+  background-color: #ff4f00;
   color: white;
   padding: 10px;
   border-radius: 5px;
   margin-top: 15px;
 }
 
-/* Pagination Controls */
-.prev-button, .next-button {
+.prev-button,
+.next-button {
   width: 100px;
   padding: 8px 16px;
-  background-color: #ff7b00; /* Modernized orange */
+  background-color: #ff7b00;
   color: white;
   border: none;
   border-radius: 4px;
@@ -193,7 +188,7 @@
 
 .prev-button:hover,
 .next-button:hover {
-  background-color: #ff9e42; /* Lighter orange */
+  background-color: #ff9e42;
   transform: scale(1.05);
 }
 
@@ -207,19 +202,17 @@
 }
 
 .movie-item:hover {
-  background-color: #ff7b00; /* Modernized orange */
+  background-color: #ff7b00;
   color: white;
 }
 
-/* Form Group Styles */
 .movieform-group {
   margin-bottom: 1.5rem;
 }
 
-/* Full-width Save Button */
 .moviebtn-success {
   width: 100%;
-  background-color: #ff7b00; /* Modernized orange */
+  background-color: #ff7b00;
   color: white;
   border: none;
   padding: 12px;
@@ -228,21 +221,17 @@
 }
 
 .moviebtn-success:hover {
-  background-color: #ff9e42; /* Lighter orange */
+  background-color: #ff9e42;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .search-container input,
-  .search-container button {
-    width: 100%; /* Full width on smaller screens */
+@media (max-width: 650px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .poster-col {
-    max-width: 100%; /* Stack poster on smaller screens */
-  }
-
+  .poster-col,
   .movie-details {
-    max-width: 100%; /* Full width details */
+    max-width: 100%;
   }
 }
