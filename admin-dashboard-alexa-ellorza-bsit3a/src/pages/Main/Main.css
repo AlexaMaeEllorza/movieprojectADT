@@ -1,45 +1,107 @@
+/* General Layout */
 .Main {
   display: flex;
   overflow: hidden;
   max-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background-color: #fff7eb; /* Light cream background */
+  
 }
+
 .Main .container {
   display: flex;
   width: 100vw;
+
 }
+
+/* Content Area */
 .Main .container .outlet {
-  flex-grow: 3;
-  padding: .5rem;
-  
+  flex-grow: 1;
+  padding: 1rem;
+  background-color: #ffffff;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03); /* Subtle shadow */
+  overflow-y: auto;
 }
+
+/* Sidebar Navigation */
 .Main .container .navigation {
-  background-color: rgb(255, 185, 109);
-  padding-top: 40px;
+  background-color: #ff914d; /* Warm orange background */
+  padding-top: 30px;
   height: 100vh;
-  width: 200px;
+  width: 240px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .Main .container .navigation ul {
   list-style: none;
-  overflow: hidden;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 
+/* Navigation Items */
 .Main .container .navigation ul li {
-  padding: 10px 80px 10px 20px;
+  margin: 1rem 0;
+  text-align: center;
 }
+
 .Main .container .navigation ul li.active,
 .Main .container .navigation ul li:hover {
-  background: #ffd98e;
-}
-.Main .container .navigation ul li a {
-  text-decoration: none;
+  background-color: #ffa366; /* Slightly lighter orange for hover effect */
+  border-radius: 5px;
 }
 
-.Main .container .navigation ul li.logout {
+/* Button Styling */
+.main-btn {
+  background-color: #ff6f3c; /* Richer orange for buttons */
+  color: #fff; /* White text */
+  border: none;
+  font-size: 16px;
+  text-transform: uppercase;
   cursor: pointer;
+  padding: 15px 20px;
+  width: 90%; /* Slightly smaller than full width */
+  margin: auto;
+  display: block;
+  text-align: center;
+  border-radius: 5px; /* Rounded corners */
+  transition: all 0.3s ease-in-out;
 }
 
-/* .logout{
-  font-size: 20px;
-} */
+.main-btn:hover {
+  background-color: #ff5c1f; /* Darker orange on hover */
+  transform: scale(1.03); /* Slight enlargement on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+/* Logout Button */
+.Main .container .navigation ul li.logout .main-btn {
+  background-color: #e63946; /* Red for logout button */
+}
+
+.Main .container .navigation ul li.logout .main-btn:hover {
+  background-color: #d62839; /* Darker red on hover */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .Main .container .navigation {
+    width: 200px;
+  }
+
+  .main-btn {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Main .container .navigation {
+    width: 180px;
+  }
+
+  .main-btn {
+    font-size: 12px;
+    padding: 10px 10px;
+  }
+}

@@ -1,5 +1,5 @@
 .moviecontainer {
-  margin-top: 5rem;
+  margin-top: 2rem;
   max-height: 80vh;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -90,25 +90,28 @@
 .row {
   display: flex;
   align-items: stretch;
-  gap: 20px;
+  gap: 2px;
   flex-wrap: wrap;
+  background-color: rgb(255, 255, 255);
 }
 
 .poster-col {
   flex: 1;
-  max-width: 50%;
+  max-width: 30%;
+  max-height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow */
 }
 
 .movie-details {
   flex: 1;
   max-width: 50%;
   display: flex;
-  flex-direction: column;
+
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
 }
 
@@ -131,19 +134,29 @@
 
 .save-button {
   margin-top: 20px;
-  width: 100px;
+  width: 150px; /* Increase button width */
+  padding: 12px 16px; /* Add padding for better visual balance */
+  font-size: 16px; /* Increase text size */
   background-color: #ff7b00;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
+  text-align: center;
 }
 
 .save-button:hover {
   background-color: white;
   color: #ff7b00;
   border: 2px solid #ff7b00;
+  transform: scale(1.05);
+}
+
+@media (max-width: 650px) {
+  .save-button {
+      width: 100%; /* Full width for small screens */
+  }
 }
 
 .moviebtn {
@@ -234,4 +247,18 @@
   .movie-details {
     max-width: 100%;
   }
+}
+.form-mvdetails {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 90%; /* Adjust width as needed */
+
+  max-width: 1200px; /* Set a max-width to prevent it from becoming too wide */
+  margin-left: 15rem;
+ /* Center the form horizontally */
 }

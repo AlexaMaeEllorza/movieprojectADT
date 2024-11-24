@@ -222,7 +222,7 @@ const Form = () => {
         </div>
 
         <div className="col-md-6 movie-details">
-            <form>
+            <form className='form-mvdetails'>
                 <div className="movieform-group">
                     <label>Title</label>
                     <input
