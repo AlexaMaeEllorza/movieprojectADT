@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate, useParams } from 'react-router-dom';
 import './Form.css';
 
 const Form = () => {
@@ -125,7 +125,7 @@ const Form = () => {
 
     return (
         <div className="moviecontainer mt-5 overflow-auto movieform-container">
-    <h1>{movieId ? 'Edit ' : 'Create '} Movie</h1>
+    <h2>{movieId ? 'Edit ' : 'Create '} Movie</h2>
 
     {error && <p className="text-center text-danger">{error}</p>}
 
@@ -210,6 +210,7 @@ const Form = () => {
         </>
     )}
 
+<div className="movie-details-container">
     <div className="row">
         <div className="col-md-6 poster-col">
             {selectedMovie && (
@@ -292,6 +293,23 @@ const Form = () => {
                 </div>
             </form>
         </div>
+        <div className="additional-info-container">
+        {movieId !== undefined && selectedMovie && (
+            <>
+                <nav>
+                    <ul className="tabs">
+                        <li onClick={() => navigate(`/main/movies/form/${movieId}/cast-and-crews`)}>Cast & Crews</li>
+                        <li onClick={() => navigate(`/main/movies/form/${movieId}/videos`)}>Videos</li>
+                        <li onClick={() => navigate(`/main/movies/form/${movieId}/photos`)}>Photos</li>
+                    </ul>
+                </nav>
+                <div className="tabs-content">
+                    <Outlet />
+                </div>
+            </>
+        )}
+    </div>
+</div>
     </div>
 </div>
 

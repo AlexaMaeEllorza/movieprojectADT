@@ -93,16 +93,17 @@
   gap: 2px;
   flex-wrap: wrap;
   background-color: rgb(255, 255, 255);
+  display: flex;
+    align-items: flex-start; /* Align items to the top */
+    gap: 2rem; /* Space between the poster and details */
 }
 
 .poster-col {
   flex: 1;
   max-width: 30%;
   max-height: 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow */
+
+   /* Adds a shadow */
 }
 
 .movie-details {
@@ -116,9 +117,11 @@
 }
 
 .poster-image {
-  max-width: 75%;
-  max-height: 75%;
+  margin-left: 10rem;
+  max-width: 100%;
+  max-height: 100%;
   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.921);
 }
 
 .movieform-group input,
@@ -250,7 +253,7 @@
 }
 .form-mvdetails {
   background-color: #f9f9f9;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
@@ -261,4 +264,62 @@
   max-width: 1200px; /* Set a max-width to prevent it from becoming too wide */
   margin-left: 15rem;
  /* Center the form horizontally */
+}
+
+.additional-info-container {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.tabs {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  /* border-bottom: 2px solid #ccc; */
+  gap: 5px; /* Adds tiny space between tabs */
+}
+
+.tabs li {
+  cursor: pointer;
+  padding: 10px 15px;
+  background-color: #ff7b00;
+  color: white;
+  border-radius: 4px 4px 0 0;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.tabs li:hover {
+  background-color: #ff9e42;
+  transform: scale(1.05);
+}
+
+.tabs-content {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .row {
+      flex-direction: column; /* Stack poster and details vertically */
+  }
+
+  .tabs {
+      flex-direction: column;
+  }
+
+  .tabs li {
+      text-align: center;
+  }
+}
+.movie-details-container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  gap: 2rem; /* Add spacing between rows */
 }

@@ -40,7 +40,7 @@ body {
 
 .table-container {
   overflow-x: auto;
-  max-height: 650px; /* Vertical scrolling for long tables */
+  max-height: 500px; /* Vertical scrolling for long tables */
   overflow-y: auto;
   border-radius: 8px; /* Rounded corners for modern style */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
