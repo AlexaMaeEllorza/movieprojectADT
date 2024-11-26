@@ -76,17 +76,17 @@
 
 /* Input Field Styles */
 .register-modern-textbox {
-    padding: 12px 16px;
-    margin: 5px 0; /* Add vertical space between textboxes */
+    padding: 5px 8px;
+    margin: 5px 0;
     font-size: 16px;
     color: #333;
     background-color: #f9f9f9;
     border: 2px solid transparent;
-    border-bottom: 2px solid #ff0000; /* Visible border */
+    border-bottom: 2px solid #ff0000;
     outline: none;
     border-radius: 4px;
     transition: all 0.3s ease;
-    width: 93.5%; /* Full width of the input */
+    width: 93.5%;
 }
 
 .register-modern-textbox:focus {

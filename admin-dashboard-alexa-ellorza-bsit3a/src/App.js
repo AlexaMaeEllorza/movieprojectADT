@@ -9,6 +9,7 @@ import Movie from './pages/Main/Movie/Movie';
 import Lists from './pages/Main/Movie/Lists/Lists';
 import Form from './pages/Main/Movie/Form/Form';
 import Register from './pages/Public/Register/Register';
+import CastNCrews from './pages/Main/Movie/CastNCrews/CastNCrews'; // Cast and Crew Component
 
 const router = createBrowserRouter([
   {
@@ -48,10 +49,8 @@ const router = createBrowserRouter([
             element: <Form />,
             children: [
               {
-                path: '/main/movies/form/:movieId',
-                element: (
-                  <h1>Change this for cast & crew CRUD functionality.</h1>
-                ),
+                path: '/main/movies/form/:movieId/CastNCrews',
+                element: <CastNCrews />,
               },
               {
                 path: '/main/movies/form/:movieId/cast-and-crews',

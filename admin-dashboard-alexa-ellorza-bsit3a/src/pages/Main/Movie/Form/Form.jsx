@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
 import './Form.css';
+import CastNCrews from '../CastNCrews/CastNCrews';
 
 const Form = () => {
     const [query, setQuery] = useState('');
@@ -298,7 +299,7 @@ const Form = () => {
             <>
                 <nav>
                     <ul className="tabs">
-                        <li onClick={() => navigate(`/main/movies/form/${movieId}/cast-and-crews`)}>Cast & Crews</li>
+                        <li onClick={() => navigate(`/main/movies/form/${movieId}/CastNCrews`)}>Cast & Crews</li>
                         <li onClick={() => navigate(`/main/movies/form/${movieId}/videos`)}>Videos</li>
                         <li onClick={() => navigate(`/main/movies/form/${movieId}/photos`)}>Photos</li>
                     </ul>
