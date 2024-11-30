@@ -83,37 +83,7 @@ function Register() {
         <h3 className="h3-register">REGISTER</h3>
         <form>
           <div className="form-container-register">
-            {/* Email */}
-            <div className="register-form-group">
-              <label>Email:</label>
-              <input
-                type="text"
-                name="email"
-                className="register-modern-textbox"
-                onChange={(e) => handleOnChange(e, 'email')}
-              />
-              {formErrors.email && (
-                <span className="register-errors">This field is required</span>
-              )}
-              {emailError && <span className="register-errors">{emailError}</span>}
-            </div>
-
-            {/* Password */}
-            <div className="register-form-group">
-              <label>Password:</label>
-              <input
-                type={isShowPassword ? 'text' : 'password'}
-                name="password"
-                className="register-modern-textbox"
-                onChange={(e) => handleOnChange(e, 'password')}
-              />
-              {formErrors.password && (
-                <span className="register-errors">This field is required</span>
-              )}
-              <div className="show-password" onClick={handleShowPassword}>
-                {isShowPassword ? 'Hide' : 'Show'} Password
-              </div>
-            </div>
+           
 
             {/* First Name */}
             <div className="register-form-group">
@@ -166,6 +136,37 @@ function Register() {
               {formErrors.contactNo && (
                 <span className="register-errors">This field is required</span>
               )}
+            </div> 
+            {/* Email */}
+            <div className="register-form-group">
+              <label>Email:</label>
+              <input
+                type="text"
+                name="email"
+                className="register-modern-textbox"
+                onChange={(e) => handleOnChange(e, 'email')}
+              />
+              {formErrors.email && (
+                <span className="register-errors">This field is required</span>
+              )}
+              {emailError && <span className="register-errors">{emailError}</span>}
+            </div>
+
+            {/* Password */}
+            <div className="register-form-group">
+              <label>Password:</label>
+              <input
+                type={isShowPassword ? 'text' : 'password'}
+                name="password"
+                className="register-modern-textbox"
+                onChange={(e) => handleOnChange(e, 'password')}
+              />
+              {formErrors.password && (
+                <span className="register-errors">This field is required</span>
+              )}
+              <div className="show-password" onClick={handleShowPassword}>
+                {isShowPassword ? 'Hide' : 'Show'} Password
+              </div>
             </div>
 
             {/* Submit Button */}

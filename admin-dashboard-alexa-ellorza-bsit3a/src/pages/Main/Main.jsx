@@ -1,29 +1,30 @@
-import { useEffect } from 'react';
+import { useEffect , useCallback, useContext} from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import './Main.css';
+import { AuthContext } from '../../context/context'; 
 
 function Main() {
-  const accessToken = localStorage.getItem('accessToken');
+  //get user info
+  const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    localStorage.removeItem('accessToken');
-    navigate('/');
-  };
+  const { clearAuthData } = useContext(AuthContext);
 
-  const handleNavigation = (path) => {
-    navigate(path);
-  };
+
+  const handleResetTab = () => {
+    localStorage.setItem('tab', JSON.stringify('cast'));
+  }
+
+  const handleLogout = useCallback(() => {
+    clearAuthData();
+    navigate('/');
+  }, [navigate, clearAuthData]);
 
   useEffect(() => {
-    if (
-      accessToken === undefined ||
-      accessToken === '' ||
-      accessToken === null
-    ) {
+    if (!auth.accessToken) {
       handleLogout();
     }
-  }, []);
+  }, [auth.accessToken, handleLogout]);
 
   return (
     <div className="Main">
@@ -33,15 +34,18 @@ function Main() {
             <li>
               <button
                 className="main-btn"
-                onClick={() => handleNavigation('/main/dashboard')}
+                onClick={() => navigate('/main/dashboard')}
               >
                 Dashboard
               </button>
             </li>
             <li>
-              <button
+            <button
                 className="main-btn"
-                onClick={() => handleNavigation('/main/Movies')}
+                onClick={() => {
+                  handleResetTab();
+                  navigate('/main/movies');
+                }}
               >
                 Movies
               </button>

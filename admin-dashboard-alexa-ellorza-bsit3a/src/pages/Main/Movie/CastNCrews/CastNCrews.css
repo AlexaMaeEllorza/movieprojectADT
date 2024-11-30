@@ -1,0 +1,212 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cast Box Container */
+.cNc-cast-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  color: #333;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Cast View Section */
+.cNc-Cast-View-Box {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.cNc-card-display-cast {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cNc-card-wrapper {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.cNc-card {
+  background-color: #fffaf2;
+  border: 2px solid #ffa500;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.2s;
+  margin-top: 30px;
+}
+
+.cNc-card:hover {
+  transform: scale(1.05);
+}
+
+.cNc-image-casts {
+
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.cNc-container {
+  
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  
+}
+
+.cNc-buttons-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cNc-delete-button,
+.cNc-edit-button {
+  background-color: #ffa500;
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+}
+
+.cNc-delete-button:hover {
+  background-color: #e59400;
+}
+
+.cNc-edit-button:hover {
+  background-color: #ffb733;
+}
+
+/* No Cast Found Message */
+.cNc-no-cast {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #ffa500;
+}
+
+/* Search Box Section */
+.cNc-Search-Box {
+  background-color: #fffaf2;
+  padding: 20px;
+  border: 2px solid #ffa500;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.cNc-search-box-btn {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cNc-input-search-person {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.cNc-button-search,
+.cNc-save-button {
+  background-color: #ffa500;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.cNc-button-search:hover,
+.cNc-save-button:hover {
+  background-color: #e59400;
+}
+
+.cNc-cast-detail-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cNc-image-container-center {
+  margin-bottom: 20px;
+}
+
+.cNc-img-cast {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cNc-info-text {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cNc-input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.cNc-cast-n,
+.cNc-character-n,
+.cNc-url-text {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.cNc-cast-name,
+.cNc-character-name,
+.cNc-url-text-photo {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.cNc-edit-back-btn {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cNc-edit-btn,
+.cNc-back-btn {
+  background-color: #ffa500;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.cNc-edit-btn:hover,
+.cNc-back-btn:hover {
+  background-color: #e59400;
+}

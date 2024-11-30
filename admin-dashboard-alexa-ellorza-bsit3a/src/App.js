@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom/client';
+// import * as ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import Login from './pages/Public/Login/Login';
@@ -10,6 +10,7 @@ import Lists from './pages/Main/Movie/Lists/Lists';
 import Form from './pages/Main/Movie/Form/Form';
 import Register from './pages/Public/Register/Register';
 import CastNCrews from './pages/Main/Movie/CastNCrews/CastNCrews'; // Cast and Crew Component
+import { AuthProvider } from './context/context';
 
 const router = createBrowserRouter([
   {
@@ -53,14 +54,6 @@ const router = createBrowserRouter([
                 element: <CastNCrews />,
               },
               {
-                path: '/main/movies/form/:movieId/cast-and-crews',
-                element: (
-                  <h1>
-                    Change this for cast & crew CRUD functionality component.
-                  </h1>
-                ),
-              },
-              {
                 path: '/main/movies/form/:movieId/photos',
                 element: (
                   <h1>Change this for photos CRUD functionality component.</h1>
@@ -77,15 +70,30 @@ const router = createBrowserRouter([
         ],
       },
     ],
-  },
+  },{
+    path: '/home',
+    // element: <Client/>,
+    children: [
+        {
+          path: '',
+          // element: <Home/>
+        },
+        {
+          path: 'movie/:movieId',
+          // element: <Movie/>
+        }
+    ]
+  }
 ]);
+
 
 function App() {
   return (
+    <AuthProvider>
     <div className='App'>
       <RouterProvider router={router} />
     </div>
+    </AuthProvider>
   );
 }
-
 export default App;

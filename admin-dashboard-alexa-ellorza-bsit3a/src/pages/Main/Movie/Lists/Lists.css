@@ -88,6 +88,7 @@ body {
 }
 
 .movie-lists td {
+  color: black;
   font-size: 14px; /* Retain readable font size */
 }
 

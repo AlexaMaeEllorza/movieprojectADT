@@ -1,10 +1,11 @@
 import axios from 'axios';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
+import { AuthContext } from '../../../../context/context';
 import './Form.css';
-import CastNCrews from '../CastNCrews/CastNCrews';
 
 const Form = () => {
+    const { auth } = useContext(AuthContext);
     const [query, setQuery] = useState('');
     const [searchedMovieList, setSearchedMovieList] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(undefined);
@@ -26,7 +27,7 @@ const Form = () => {
                 url: `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=${page}`,
                 headers: {
                     Accept: 'application/json',
-                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZjcwNmYyZDQwMDA0ZTUwYzhmOGUwZDg4MWNjMzMzMCIsIm5iZiI6MTczMTU5ODg1NC42MjI1ODgyLCJzdWIiOiI2NzEzMzc3MjY1MDI0OGI5ZGI2MWQ3MzgiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.Z5quNuFFNmtUb_Vmo7pduOIfBzu0JKfpvmmHcJJ08ps',
+                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZjQ4ZTE2MGZmMWUyMzNjZWJmMDBmNjc4MmU3ZDBkZCIsIm5iZiI6MTczMjgwNzA5OC4yNTgyMDQ3LCJzdWIiOiI2NzQ4ODdhODU0MzQzODhlMWE1OGFhMjQiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0._14QiHZ1YuPBAdadW1XjbsNfXLCYSGnLv9u381L2Oho',
                 },
             });
 
@@ -52,7 +53,6 @@ const Form = () => {
     };
 
     const handleSave = async () => {
-        const accessToken = localStorage.getItem('accessToken');
         if (!selectedMovie) {
             alert('Please search and select a movie.');
             return;
@@ -77,7 +77,7 @@ const Form = () => {
                     url: `/movies/${movieId}`,
                     data: data,
                     headers: {
-                        Authorization: `Bearer ${accessToken}`,
+                        Authorization: `Bearer ${auth.accessToken}`,
                     },
                 });
                 alert('Update Success');
@@ -87,7 +87,7 @@ const Form = () => {
                     url: '/movies',
                     data: data,
                     headers: {
-                        Authorization: `Bearer ${accessToken}`,
+                        Authorization: `Bearer ${auth.accessToken}`,
                     },
                 });
                 alert('Save Success');
@@ -299,7 +299,7 @@ const Form = () => {
             <>
                 <nav>
                     <ul className="tabs">
-                        <li onClick={() => navigate(`/main/movies/form/${movieId}/CastNCrews`)}>Cast & Crews</li>
+                        <li onClick={() => navigate(`/main/movies/form/${movieId}/castncrews`)}>Cast & Crews</li>
                         <li onClick={() => navigate(`/main/movies/form/${movieId}/videos`)}>Videos</li>
                         <li onClick={() => navigate(`/main/movies/form/${movieId}/photos`)}>Photos</li>
                     </ul>
