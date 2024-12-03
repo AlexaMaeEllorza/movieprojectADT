@@ -62,7 +62,7 @@ function Register() {
     };
 
     try {
-      const res = await axios.post('/user/register', registerData);
+      const res = await axios.post('/admin/register', registerData);
       console.log('Response:', res.data); // Debug server response
       navigate('/');
       alert('Registration successful!');

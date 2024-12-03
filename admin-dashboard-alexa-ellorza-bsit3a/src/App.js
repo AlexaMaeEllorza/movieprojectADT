@@ -9,7 +9,8 @@ import Movie from './pages/Main/Movie/Movie';
 import Lists from './pages/Main/Movie/Lists/Lists';
 import Form from './pages/Main/Movie/Form/Form';
 import Register from './pages/Public/Register/Register';
-import CastNCrews from './pages/Main/Movie/CastNCrews/CastNCrews'; // Cast and Crew Component
+import CastNCrews from './pages/Main/Movie/CastNCrews/CastNCrews';
+import Videos from './pages/Main/Movie/Videos/Videos'; 
 import { AuthProvider } from './context/context';
 
 const router = createBrowserRouter([
@@ -54,15 +55,14 @@ const router = createBrowserRouter([
                 element: <CastNCrews />,
               },
               {
-                path: '/main/movies/form/:movieId/photos',
-                element: (
-                  <h1>Change this for photos CRUD functionality component.</h1>
-                ),
+                path: '/main/movies/form/:movieId/videos',
+                  element: <Videos />,
+                
               },
               {
-                path: '/main/movies/form/:movieId/videos',
+                path: '/main/movies/form/:movieId/Photos',
                 element: (
-                  <h1>Change this for videos CRUD functionality component.</h1>
+                  <h1>Change this for photos CRUD functionality component.</h1>
                 ),
               },
             ],
