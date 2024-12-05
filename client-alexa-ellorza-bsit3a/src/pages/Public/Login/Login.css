@@ -1,0 +1,180 @@
+/* Main Login Container */
+.loginmain-container {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+
+}
+
+/* Background Image and Overlay */
+.loginmain-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px);
+  z-index: 1;
+}
+
+/* Heading Styles */
+.h3-login {
+  color: #ff6347;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  
+  position: relative;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Password Show/Hide Icon */
+div.show-password {
+  color: #333;
+  cursor: pointer;
+}
+
+/* Form Container Styles */
+.loginform-container {
+  position: relative;
+  padding: 2rem 2.5rem;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  max-width: 450px;
+  z-index: 2;
+  margin-top: 30px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.loginform-container:hover {
+  transform: scale(1.02);
+  opacity: 0.95;
+}
+
+/* Form Group Styles */
+.loginform-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Label Styles */
+.loginform-group label {
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/* Input Field Styles */
+.loginmodern-textbox {
+  padding: 14px 18px;
+  margin: 6px 0;
+  font-size: 16px;
+  color: #333;
+  background-color: #f7f7f7;
+  border: 2px solid transparent;
+  border-bottom: 2px solid #ff6347;
+  outline: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  width: 90%;
+}
+
+.loginmodern-textbox:focus {
+  border-color: #ff6347;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 99, 71, 0.2);
+}
+
+.loginmodern-textbox::placeholder {
+  color: #aaa;
+  transition: color 0.2s ease;
+}
+
+.loginmodern-textbox:focus::placeholder {
+  color: #ff6347;
+}
+
+/* Error Message Styles */
+.loginerrors {
+  color: #e74c3c;
+  margin-top: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Submit Button Styles */
+.loginsubmit-container {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.login-button {
+  background-color: #ff6347;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  width: 100%;
+}
+
+.login-button:hover {
+  background-color: #ffffff;
+  color: #ff6347;
+  border: 2px solid #ff6347;
+  transform: translateY(-2px);
+}
+
+.login-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 99, 71, 0.5);
+}
+
+/* Additional Styles */
+.register-container {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Alert Message Styles */
+.alert-box {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  font-weight: bold;
+  z-index: 3;
+  margin: 0 auto;
+}
+
+.alert-box.error {
+  background-color: rgba(255, 99, 71, 0.1);
+  color: #ff6347;
+}
+
+.alert-box.success {
+  background-color: rgba(46, 204, 113, 0.1);
+  color: #2ecc71;
+}
