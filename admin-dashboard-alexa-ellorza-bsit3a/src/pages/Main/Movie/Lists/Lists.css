@@ -46,6 +46,38 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
   background-color: #ffffff; /* Clean white background */
 }
+/* Custom Scrollbar */
+.table-container::-webkit-scrollbar {
+  width: 12px; /* Width of the vertical scrollbar */
+  height: 12px; /* Height of the horizontal scrollbar */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #ff8c42; /* Warm orange thumb color */
+  border-radius: 10px; /* Rounded scrollbar thumb */
+  border: 3px solid #ffffff; /* Adds spacing around the thumb for a clean look */
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #e66a20; /* Darker shade on hover for interactivity */
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #ffe3cc; /* Light, warm background for the track */
+  border-radius: 10px; /* Matches thumb's rounded corners */
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for contrast */
+}
+
+.table-container::-webkit-scrollbar-corner {
+  background-color: #ffe3cc; /* Corner color to match the track */
+}
+
+/* Smooth scrolling for a modern feel */
+.table-container {
+  scroll-behavior: smooth;
+}
+
 
 .movie-lists {
   width: 100%;
