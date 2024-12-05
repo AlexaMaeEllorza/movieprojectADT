@@ -11,6 +11,7 @@ import Form from './pages/Main/Movie/Form/Form';
 import Register from './pages/Public/Register/Register';
 import CastNCrews from './pages/Main/Movie/CastNCrews/CastNCrews';
 import Videos from './pages/Main/Movie/Videos/Videos'; 
+import Photos from './pages/Main/Movie/Photo/Photos'
 import { AuthProvider } from './context/context';
 
 const router = createBrowserRouter([
@@ -20,15 +21,15 @@ const router = createBrowserRouter([
   },
   {
     path: '/register',
-    element: <Register />
+    element: <Register />,
   },
   {
     path: 'admin/login',
-    element: <Login />
+    element: <Login />,
   },
   {
     path: 'admin/register',
-    element: <Register />
+    element: <Register />,
   },
   {
     path: '/main',
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/main/dashboard',
-        element: <Dashboard />,
+        element: <Dashboard />
       },
       {
         path: '/main/movies',
@@ -47,43 +48,49 @@ const router = createBrowserRouter([
             element: <Lists />,
           },
           {
-            path: '/main/movies/form/:movieId?',
+            path: '/main/movies/form/:id?',
             element: <Form />,
             children: [
               {
-                path: '/main/movies/form/:movieId/CastNCrews',
-                element: <CastNCrews />,
+                path: '/main/movies/form/:id',
+                element: <CastNCrews />
               },
               {
-                path: '/main/movies/form/:movieId/videos',
-                  element: <Videos />,
-                
+                path: '/main/movies/form/:id/cast-and-crews/:movieId?',
+                element: <CastNCrews />
               },
               {
-                path: '/main/movies/form/:movieId/Photos',
-                element: (
-                  <h1>Change this for photos CRUD functionality component.</h1>
-                ),
+                path: '/main/movies/form/:id/photos/:movieId?',
+                element: <Photos />
               },
-            ],
+              {
+                path: '/main/movies/form/:id/videos/:movieId?',
+                element: <Videos />
+              },
+            ]
           },
-        ],
+        ]
       },
+      // {
+      //   path: '/main/dashboard',
+      //   element: <Dashboard />,
+      // },
     ],
-  },{
+  },
+  {
     path: '/home',
-    // element: <Client/>,
+    // element: <Client />,
     children: [
-        {
-          path: '',
-          // element: <Home/>
-        },
-        {
-          path: 'movie/:movieId',
-          // element: <Movie/>
-        }
+      {
+        path: '/home',
+        // element: <Home />
+      },
+      {
+        path: '/home/movie/:movieId?',
+        // element: <Movie />
+      }
     ]
-  }
+  },
 ]);
 
 

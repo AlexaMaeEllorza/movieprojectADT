@@ -17,19 +17,22 @@
 /* Content Area */
 .Main .container .outlet {
   flex-grow: 1;
-  padding: 1rem;
+  padding: 20px;
   background-color: #ffffff;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03); /* Subtle shadow */
-  overflow-y: auto;
+
 }
 
 /* Sidebar Navigation */
 .Main .container .navigation {
   background-color: #ff914d; /* Warm orange background */
-  padding-top: 30px;
+  padding-top: 50px;
   height: 100vh;
   width: 240px;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  padding-right: 10px;
+  padding-left: 10px;
+  
 }
 
 .Main .container .navigation ul {
@@ -53,18 +56,18 @@
 
 /* Button Styling */
 .main-btn {
-  background-color: #ff6f3c; /* Richer orange for buttons */
-  color: #fff; /* White text */
+  background-color: #ff6f3c;
+  color: #fff;
   border: none;
   font-size: 16px;
   text-transform: uppercase;
   cursor: pointer;
   padding: 15px 20px;
-  width: 90%; /* Slightly smaller than full width */
+  width: 100%;
   margin: auto;
   display: block;
-  text-align: center;
-  border-radius: 5px; /* Rounded corners */
+  text-align: left;
+  border-radius: 5px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -97,7 +100,7 @@
 
 @media screen and (max-width: 480px) {
   .Main .container .navigation {
-    width: 180px;
+    width: 200px;
   }
 
   .main-btn {

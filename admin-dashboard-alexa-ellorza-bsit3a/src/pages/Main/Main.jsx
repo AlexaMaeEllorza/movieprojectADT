@@ -31,14 +31,14 @@ function Main() {
       <div className="container">
         <div className="navigation">
           <ul>
-            <li>
+            {/* <li>
               <button
                 className="main-btn"
                 onClick={() => navigate('/main/dashboard')}
               >
                 Dashboard
               </button>
-            </li>
+            </li> */}
             <li>
             <button
                 className="main-btn"

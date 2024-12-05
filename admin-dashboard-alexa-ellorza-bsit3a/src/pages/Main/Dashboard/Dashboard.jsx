@@ -1,13 +1,13 @@
-// src/pages/Main/Dashboard/Dashboard.jsx
-import React from 'react';
+// // src/pages/Main/Dashboard/Dashboard.jsx
+// import React from 'react';
 
-const Dashboard = () => {
-  return (
-    <div>
-      <h1>Dashboard</h1>
-      <p>Welcome to the dashboard!</p>
-    </div>
-  );
-};
+// const Dashboard = () => {
+//   return (
+//     <div>
+//       <h1>Dashboard</h1>
+//       <p>Welcome to the dashboard!</p>
+//     </div>
+//   );
+// };
 
-export default Dashboard;
+// export default Dashboard;

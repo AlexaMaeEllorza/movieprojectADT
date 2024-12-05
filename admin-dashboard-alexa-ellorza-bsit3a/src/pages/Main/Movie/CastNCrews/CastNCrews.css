@@ -10,10 +10,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  background-color: chocolate;
   color: #333;
   padding: 20px;
   min-height: 100vh;
+  
 }
 
 /* Cast View Section */
@@ -30,8 +31,10 @@ body {
 
 .cNc-card-wrapper {
   display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
+      gap: 15px;
+      flex-wrap: wrap;
+      max-height: 400px;
+      overflow-y: auto;
 }
 
 .cNc-card {
@@ -40,7 +43,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 250px;
+  width: 300px;
   text-align: center;
   transition: transform 0.2s;
   margin-top: 30px;
@@ -52,7 +55,7 @@ body {
 
 .cNc-image-casts {
 
-  width: 250px;
+
   height: 200px;
   object-fit: cover;
   border-radius: 50%;
@@ -109,6 +112,7 @@ body {
   border-radius: 8px;
   width: 100%;
   max-width: 800px;
+  margin-bottom: 10px;
 }
 
 .cNc-search-box-btn {
@@ -138,7 +142,8 @@ body {
 }
 
 .cNc-button-search:hover,
-.cNc-save-button:hover {
+.cNc-save-button:hover,
+.import-cast-button:hover {
   background-color: #e59400;
 }
 
@@ -209,4 +214,15 @@ body {
 .cNc-edit-btn:hover,
 .cNc-back-btn:hover {
   background-color: #e59400;
+}
+
+.import-cast-button{
+  background-color: #ffa500;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }

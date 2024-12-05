@@ -1,3 +1,10 @@
+* {
+  color: black;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .moviecontainer {
   margin-top: 2rem;
   max-height: 80vh;
@@ -117,6 +124,7 @@
 }
 
 .poster-image {
+  margin-top: 100px;
   margin-left: 10rem;
   max-width: 100%;
   max-height: 100%;
@@ -126,11 +134,24 @@
 
 .movieform-group input,
 .movieform-group textarea {
-  width: 90%;
+  width: 100%;
   padding: 10px;
   margin: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Arial', sans-serif;
 }
 
+.seletor-feature{
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  
+}
 .movieform-group button {
   margin-top: 20px;
 }
@@ -253,7 +274,8 @@
 }
 .form-mvdetails {
   background-color: #f9f9f9;
-  padding: 10px;
+  padding: 20px;
+  padding-right: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
@@ -300,7 +322,7 @@
 .tabs-content {
   margin-top: 1rem;
   padding: 1rem;
-  background-color: white;
+  background-color: rgb(240, 119, 32);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }

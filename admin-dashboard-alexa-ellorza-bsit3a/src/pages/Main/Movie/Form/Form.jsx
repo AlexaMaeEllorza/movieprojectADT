@@ -1,22 +1,65 @@
 import axios from 'axios';
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState, useRef } from 'react';
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../../context/context';
 import './Form.css';
 
 const Form = () => {
-    const { auth } = useContext(AuthContext);
-    const [query, setQuery] = useState('');
-    const [searchedMovieList, setSearchedMovieList] = useState([]);
-    const [selectedMovie, setSelectedMovie] = useState(undefined);
-    const [, setMovie] = useState(undefined);
-    const [notfound, setNotFound] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(0);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const navigate = useNavigate();
-    let { movieId } = useParams();
+    const { auth } = useContext(AuthContext);//1
+    const [query, setQuery] = useState(''); //1
+    const [searchedMovieList, setSearchedMovieList] = useState([]);//2
+    const [selectedMovie, setSelectedMovie] = useState(undefined);//3
+    const [notfound, setNotFound] = useState(false);//4
+    const [currentPage, setCurrentPage] = useState(1);//5
+    const [totalPages, setTotalPages] = useState(0);//6
+    const [pagebtn, setPageBtn] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);//7
+    const [error, setError] = useState(null);//8
+    const navigate = useNavigate();//9
+    let { movieId } = useParams();//10
+    const selectorRef = useRef();
+    let { id } = useParams();
+    const { setMovieInfo } = useContext(AuthContext);
+    const tabset = JSON.parse(localStorage.getItem('tab'));
+    const [tab, setTab] = useState(tabset);
+
+    useEffect(() => {
+        tabselector();
+    })
+
+    const tabselector = () => {
+        const castTab = document.querySelector('.cast-tab');
+        const videoTab = document.querySelector('.video-tab');
+        const photoTab = document.querySelector('.photo-tab');
+
+        switch (tab) {
+            case 'cast':
+                if (castTab) {
+                    castTab.style.backgroundColor = 'orange';
+                    videoTab.style.backgroundColor = '';
+                    photoTab.style.backgroundColor = '';
+                }
+                break;
+            case 'video':
+                if (videoTab) {
+                    videoTab.style.backgroundColor = 'orange';
+                    castTab.style.backgroundColor = '';
+                    photoTab.style.backgroundColor = '';
+                }
+                break;
+            case 'photo':
+                if (photoTab) {
+                    photoTab.style.backgroundColor = 'orange';
+                    videoTab.style.backgroundColor = '';
+                    castTab.style.backgroundColor = '';
+                }
+                break;
+            default:
+        }
+        //this will update the tab select on localStorage
+        localStorage.setItem('tab', JSON.stringify(tab));
+    }
+
 
     const handleSearch = useCallback(async (page = 1) => {
         setIsLoading(true);
@@ -32,13 +75,16 @@ const Form = () => {
             });
 
             if (response.data.results.length === 0) {
+                console.log("Not Found");
                 setNotFound(true);
                 setSearchedMovieList([]);
                 setTotalPages(0);
+                setPageBtn(false);
             } else {
                 setSearchedMovieList(response.data.results);
                 setTotalPages(response.data.total_pages);
                 setNotFound(false);
+                setPageBtn(true);
             }
         } catch (err) {
             setError('Error fetching movies. Please try again later.');
@@ -58,20 +104,21 @@ const Form = () => {
             return;
         }
 
-        const data = {
-            tmdbId: selectedMovie.id,
-            title: selectedMovie.title,
-            overview: selectedMovie.overview,
-            popularity: selectedMovie.popularity,
-            releaseDate: selectedMovie.release_date,
-            voteAverage: selectedMovie.vote_average,
-            backdropPath: `https://image.tmdb.org/t/p/original/${selectedMovie.backdrop_path}`,
-            posterPath: `https://image.tmdb.org/t/p/original/${selectedMovie.poster_path}`,
-            isFeatured: 0,
-        };
-
+        
         try {
             if (movieId) {
+                // Update existing movie
+                const data = {
+                    tmdbId: selectedMovie.id,
+                    title: selectedMovie.title,
+                    overview: selectedMovie.overview,
+                    popularity: selectedMovie.popularity,
+                    releaseDate: selectedMovie.release_date,
+                    voteAverage: selectedMovie.vote_average,
+                    backdropPath: selectedMovie.backdrop_path,
+                    posterPath: selectedMovie.poster_path,
+                    isFeatured: selectedMovie.isFeatured,
+                };
                 await axios({
                     method: 'PATCH',
                     url: `/movies/${movieId}`,
@@ -82,6 +129,25 @@ const Form = () => {
                 });
                 alert('Update Success');
             } else {
+                if (!selectorRef.current.value.trim()) {
+                    selectorRef.current.style.border = '2px solid red';
+                    setTimeout(() => {
+                        selectorRef.current.style.border = '1px solid #ccc';
+                    }, 2000);
+                    return;
+                }
+                // Create new movie
+                const data = {
+                    tmdbId: selectedMovie.id,
+                    title: selectedMovie.title,
+                    overview: selectedMovie.overview,
+                    popularity: selectedMovie.popularity,
+                    releaseDate: selectedMovie.release_date,
+                    voteAverage: selectedMovie.vote_average,
+                    backdropPath: `https://image.tmdb.org/t/p/original/${selectedMovie.backdrop_path}`,
+                    posterPath: `https://image.tmdb.org/t/p/original/${selectedMovie.poster_path}`,
+                    isFeatured: selectedMovie.isFeatured,
+                };
                 await axios({
                     method: 'post',
                     url: '/movies',
@@ -104,15 +170,18 @@ const Form = () => {
             const fetchMovie = async () => {
                 try {
                     const response = await axios.get(`/movies/${movieId}`);
-                    setMovie(response.data);
+                    setMovieInfo(response.data);
                     setSelectedMovie({
                         id: response.data.tmdbId,
+                        tmdbId: response.data.id,
                         title: response.data.title,
                         overview: response.data.overview,
                         popularity: response.data.popularity,
+                        backdrop_path: response.data.backdropPath,
                         poster_path: response.data.posterPath,
                         release_date: response.data.releaseDate,
                         vote_average: response.data.voteAverage,
+                        isFeatured: response.data.isFeatured,
                     });
                 } catch (err) {
                     setError('Error fetching movie details. Please try again later.');
@@ -122,7 +191,7 @@ const Form = () => {
 
             fetchMovie();
         }
-    }, [movieId]);
+    }, [movieId, setMovieInfo, setSelectedMovie]);
 
     return (
         <div className="moviecontainer mt-5 overflow-auto movieform-container">
@@ -141,10 +210,11 @@ const Form = () => {
                             className="movieform-control me-2 search-input"
                             onChange={(event) => {
                                 setQuery(event.target.value);
-                                setNotFound(false);
-                                setSearchedMovieList([]);
-                                setSelectedMovie(undefined);
-                                setCurrentPage(1);
+                                        setNotFound(false);
+                                        setSearchedMovieList([]);
+                                        setSelectedMovie(undefined);
+                                        setCurrentPage(1);
+                                        setPageBtn(false);
                             }}
                             placeholder="Enter movie title"
                         />
@@ -179,7 +249,7 @@ const Form = () => {
                 </div>
             </div>
 
-            {totalPages > 0 && (
+            {totalPages > 0 && !notfound && pagebtn && (
                 <div className="pagination-container">
                     <button
                         className="moviebtn btn-secondary prev-button"
@@ -217,8 +287,10 @@ const Form = () => {
             {selectedMovie && (
                 <img
                     className="img-fluid poster-image mb-3"
-                    src={`https://image.tmdb.org/t/p/original/${selectedMovie.poster_path}`}
-                    alt={selectedMovie.title}
+                    src={selectedMovie?.poster_path
+                        ? `https://image.tmdb.org/t/p/original/${selectedMovie.poster_path}`
+                        : require('./../../../../images/image_default.jpg')}
+                    alt={selectedMovie?.title}
                 />
             )}
         </div>
@@ -281,7 +353,26 @@ const Form = () => {
                         disabled={movieId === undefined}
                     />
                 </div>
-
+                <label>Is Featured</label>
+                        <select
+                            className="seletor-feature"
+                            value={selectedMovie && typeof selectedMovie.isFeatured === "boolean"
+                                ? (selectedMovie.isFeatured ? "Yes" : "No")
+                                : ""}
+                            onChange={(e) =>
+                                setSelectedMovie({
+                                    ...selectedMovie,
+                                    isFeatured: e.target.value === "Yes"
+                                })
+                            }
+                            ref={selectorRef}
+                        >
+                            <option value="" disabled>
+                                Select an option
+                            </option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
                 <div className="movieform-group">
                     <button
                         type="button"
@@ -299,9 +390,25 @@ const Form = () => {
             <>
                 <nav>
                     <ul className="tabs">
-                        <li onClick={() => navigate(`/main/movies/form/${movieId}/castncrews`)}>Cast & Crews</li>
-                        <li onClick={() => navigate(`/main/movies/form/${movieId}/videos`)}>Videos</li>
-                        <li onClick={() => navigate(`/main/movies/form/${movieId}/photos`)}>Photos</li>
+                        <li className='cast-tab' onClick={() => {setTab('cast') 
+                            navigate(`/main/movies/form/${id}/cast-and-crews/${movieId}`);
+                            }}
+                            onChange={tabselector}
+                            >Cast & Crews</li>
+                        <li className='video-tab' 
+                        onClick={() => {
+                            setTab('video')
+                            navigate(`/main/movies/form/${id}/videos/${movieId}`);
+                            }}
+                            onChange={tabselector}
+                            >
+                            Videos</li>
+                        <li className='photo-tab' onClick={() => {
+                            setTab('photo')
+                            navigate(`/main/movies/form/${id}/photos/${movieId}`);
+                            }}
+                            onChange={tabselector}
+                            >Photos</li>
                     </ul>
                 </nav>
                 <div className="tabs-content">
