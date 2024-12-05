@@ -97,9 +97,10 @@ function Login() {
             {alertMessage}
           </div>
         )}
-        <h3 className="h3-login">LOGIN</h3>
+        
         <form>
           <div className="loginform-container">
+            <h3 className="h3-login">LOGIN</h3>
             <div>
               <div className="loginform-group">
                 <label>E-mail:</label>
