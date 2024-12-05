@@ -51,40 +51,44 @@ function Login() {
   const handleLogin = async () => {
     const data = { email, password };
     setStatus('loading');
-
+  
     try {
       const res = await axios.post(apiEndpoint, data, {
         headers: { 'Access-Control-Allow-Origin': '*' },
       });
-
-      // Save user data and navigate based on role
+  
+      // Check if the logged-in user is an admin
+      if (res.data.user.role !== 'admin') {
+        throw new Error('Access denied: Only admin can log in.');
+      }
+  
+      // Save user data and navigate to the admin dashboard
       localStorage.setItem('accessToken', res.data.access_token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
-
+  
       setAuthData({
         accessToken: res.data.access_token,
         user: res.data.user,
       });
-
+  
       setAlertMessage(res.data.message || 'Login successful!');
       setIsError(false);
       setTimeout(() => {
-        navigate(res.data.user.role === 'admin' ? '/main/movies' : '/home'); // /home this user login
+        navigate('/main/movies'); // Admin login redirects here
         setStatus('idle');
       }, 3000);
     } catch (e) {
       console.log(e);
-
-      // Show the alert message
+  
+      // Show error message if user is not an admin
       setIsError(true);
-      setAlertMessage(e.response?.data?.message || e.message);
+      setAlertMessage(e.message || e.response?.data?.message || 'An error occurred.');
       setTimeout(() => {
         setAlertMessage('');
         setStatus('idle');
       }, 3000);
     }
   };
-
   useEffect(() => {
     console.log('Auth State Updated:', auth);
   }, [auth]);

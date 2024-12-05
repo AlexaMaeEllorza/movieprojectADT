@@ -134,6 +134,7 @@
     width: 100%;
     height: 250px;
     object-fit: cover;
+    padding: 7px;
   }
   
   .container-photo {
