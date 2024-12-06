@@ -141,6 +141,8 @@ body {
 }
 
 .movie-poster:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
+  
+  transform: scale(1.5); /* Slight zoom on hover */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+
 }
