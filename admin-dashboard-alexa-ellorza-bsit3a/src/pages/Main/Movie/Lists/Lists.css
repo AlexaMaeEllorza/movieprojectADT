@@ -125,10 +125,22 @@ body {
 }
 
 .movie-lists td button {
-  margin-right: 10px;
+  margin: 10px;
 }
 
-.movie-lists td:last-child {
-  display: flex;
-  gap: 10px; /* Space between action buttons */
+
+
+/* Movie Poster */
+.movie-poster {
+  width: 40px; /* Small size for a thumbnail */
+  height: 60px; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image is cropped neatly if dimensions differ */
+  border-radius: 8px; /* Smooth edges for a modern look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.movie-poster:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
 }

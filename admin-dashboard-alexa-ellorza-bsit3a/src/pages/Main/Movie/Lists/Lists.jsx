@@ -67,6 +67,7 @@ const Lists = () => {
           <thead>
             <tr>
               <th>No.</th>
+              <th></th>
               <th>ID</th>
               <th>Title</th>
               <th>TmdbID</th>
@@ -78,7 +79,13 @@ const Lists = () => {
           <tbody>
                   {lists.map((movie, index) => (
                     <tr key={movie.id}>
-                      <td>{index + 1}</td>
+                    <td>{index + 1}</td> 
+                       <td>                  
+                      <img
+                        src={movie.posterPath}
+                        alt={movie.title}
+                        className="movie-poster"/>
+                        </td>
                       <td>{movie.id}</td>
                       <td>{movie.title}</td>
                       <td>{movie.tmdbId}</td>
