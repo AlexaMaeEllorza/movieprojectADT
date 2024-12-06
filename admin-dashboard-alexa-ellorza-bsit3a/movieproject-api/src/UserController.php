@@ -59,7 +59,7 @@ class UserController
             $id = $this->gateway->register($data); 
             http_response_code(201);
             echo json_encode([
-                "message" => "User created",
+                "message" => "Account Created Successful",
                 "id" => $id
             ]);
         }

@@ -55,12 +55,12 @@ class CastsGateway
     {
         $sql = "UPDATE casts SET name=:name,url=:url,characterName=:characterName, dateUpdated = NOW() WHERE id =:id AND userId = :userId";
         $res = $this->conn->prepare($sql);
-        $dateUpdated = (new DateTime())->getTimeStamp();
+        //$dateUpdated = (new DateTime())->getTimeStamp();
         $res->bindValue(":userId",$current["userId"], PDO::PARAM_INT);
         $res->bindValue(":name",$new["name"] ?? $current["name"], PDO::PARAM_STR);
         $res->bindValue(":url",$new["url"] ?? $current["url"], PDO::PARAM_STR);
         $res->bindValue(":characterName",$new["characterName"] ?? $current["characterName"], PDO::PARAM_STR);
-        // $res->bindValue(":dateUpdated",$dateUpdated, PDO::PARAM_STR);
+        //$res->bindValue(":dateUpdated",$dateUpdated, PDO::PARAM_STR);
         $res->bindValue(":id", $current["id"], PDO::PARAM_INT);
 
         $res->execute();
