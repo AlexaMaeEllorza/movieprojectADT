@@ -64,7 +64,7 @@ const Home = () => {
             <MovieCards
               movie={movie}
               onClick={() => {
-                navigate(`/view/${movie.id}`);
+                navigate(`/main/view/${movie.tmdbId}`);
                 setMovie(movie);
               }}
             />
@@ -74,5 +74,4 @@ const Home = () => {
     </div>
   );
 };
-
 export default Home;

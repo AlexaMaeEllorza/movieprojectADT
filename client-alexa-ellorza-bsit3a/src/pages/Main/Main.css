@@ -1,82 +1,78 @@
-/* Main container for full-screen layout */
 .Main {
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background: linear-gradient(145deg, #2c2f36, #23272b); /* Elegant dark gradient */
+  background: linear-gradient(135deg, #1f1f2c, #262f42);
 }
 
-/* Container for content area and navigation */
 .Main .container {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   height: 100%;
-  padding: 24px; /* Slightly increased padding for modern spacing */
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Content area (outlet) */
 .Main .container .outlet {
   flex-grow: 1;
-  padding: 2.5rem; /* Slightly larger padding for content */
+  padding: 3rem;
   overflow-y: auto;
-  background-color: #333a42; /* Sophisticated dark gray */
-  color: #f0f0f0; /* Light text for readability */
-  border-radius: 18px; /* Smooth rounded corners */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
-  margin-bottom: 24px; /* Slightly more space between content and footer */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, clean font */
-  font-size: 18px; /* Slightly larger for better readability */
-  line-height: 1.6; /* Improved line spacing */
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #f4f4f9;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  transition: all 0.3s ease-in-out;
 }
-/* Custom Scrollbar */
+
+.Main .container .outlet:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
 .Main .container .outlet::-webkit-scrollbar {
-  width: 12px; 
-  height: 12px; 
+  width: 8px;
 }
 
 .Main .container .outlet::-webkit-scrollbar-thumb {
-  background: #000000;
-  border-radius: 10px;
-  border: 3px solid #ffffff; 
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); 
+  background: #5d5d5d;
+  border-radius: 4px;
 }
 
 .Main .container .outlet::-webkit-scrollbar-thumb:hover {
-  background: #4a4a4b;
+  background: #7f7f7f;
 }
 
 .Main .container .outlet::-webkit-scrollbar-track {
-  background: #a3a3a3; 
-  border-radius: 10px; 
-  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1); 
+  background: #1a1a1a;
 }
 
-.Main .container .outlet::-webkit-scrollbar-corner {
-  background-color: #ffe3cc; 
-}
-
-/* Smooth scrolling for a modern feel */
-.cNc-card-wrapper {
-  scroll-behavior: smooth;
-}
-
-/* Navigation bar */
 .Main .container .navigation {
-  height: 80px; /* Slightly taller for emphasis */
-  background-color: #1c2026; /* Classy, dark navigation background */
+  background-color: rgba(255, 204, 153, 0.8);
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 48px; /* Increased padding for modern spacing */
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2); /* Light shadow for subtle elevation */
-  border-bottom: 2px solid #444c56; /* Thin line for elegant separation */
+  padding: 0 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  transition: background-color 0.3s ease;
+  position: relative;
 }
 
-/* Navigation list */
+.Main .container .navigation:hover {
+  background-color: rgba(255, 179, 128, 0.9);
+}
+
 .Main .container .navigation ul {
   list-style: none;
   display: flex;
@@ -84,59 +80,87 @@
   margin: 0;
 }
 
-/* Navigation items */
 .Main .container .navigation ul li {
-  padding: 0 32px; /* Slightly more spacing between items */
-  height: 100%;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #ffcc5c; /* Golden orange color for class */
-  font-weight: 600;
-  letter-spacing: 1px; /* More pronounced spacing for a modern feel */
+  color: #ff8c42;
+  font-weight: 500;
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  letter-spacing: 0.8px;
+  font-size: 15px;
   cursor: pointer;
-  font-size: 16px; /* Larger text for emphasis */
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Link inside nav items */
-.Main .container .navigation ul li a {
-  text-decoration: none;
-  color: inherit;
-  font-size: 16px;
-}
-
-/* Active or hover state for nav items */
-.Main .container .navigation ul li.active,
 .Main .container .navigation ul li:hover {
-  background-color: #444c56; /* Subtle dark hover effect */
-  color: #fff; /* White text on hover for readability */
-  border-radius: 10px; /* More rounded corners for sleek look */
-  transform: scale(1.08); /* Slightly larger scale effect for interactivity */
-}
-
-/* Special styles for logout/login items */
-.Main .container .navigation ul li.logout,
-.Main .container .navigation ul li.login {
-  font-size: 18px; /* Larger text for logout/login */
-  font-weight: 700;
-  color: #ffcc5c; /* Consistent golden-orange for important links */
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-.Main .container .navigation ul li.logout:hover,
-.Main .container .navigation ul li.login:hover {
   color: #fff;
-  background-color: #ffcc5c; /* Golden hover effect */
-  border-radius: 10px;
+  transform: scale(1.1);
 }
 
-/* Optional footer */
+.Main .container .navigation ul li.active {
+  color: #fff;
+  background-color: rgba(255, 136, 77, 0.9);
+  border-radius: 12px;
+  padding: 12px 24px;
+}
+
+.Main .container .navigation .logout {
+  position: absolute;
+  top: -50%;
+  right: 2rem;
+  transform: translateY(50%);
+}
+
 .Main .container .footer {
-  font-size: 14px; /* Slightly larger footer text */
-  color: #888;
+  font-size: 14px;
+  color: #bbb;
   text-align: center;
   margin-top: auto;
+  padding: 1rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.Main .container .footer:hover {
+  opacity: 1;
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #ff7f50;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  z-index: 10;
+}
+
+button:hover {
+  background-color: #f78c57;
+  
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.button .logout:hover {
+  background-color: #f75757;
+  
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+button:active {
+  
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+button.logout:active {
+  transform: (1px);
 }

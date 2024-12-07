@@ -1,0 +1,33 @@
+/* Container for movie cards */
+.video-card {
+    position: relative;
+    width: 100%;
+    max-width: 500px; 
+    margin: 10px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .video-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Styling for the movie poster image */
+  .video-card-video {
+    width: 500px;
+    height: 300px;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    border-radius: 12px;
+  }
+  
+  .video-card:hover .cast-card-video {
+    transform: scale(1.1); 
+    filter: brightness(70%);
+  }
+  

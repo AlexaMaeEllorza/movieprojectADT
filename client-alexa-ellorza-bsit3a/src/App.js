@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: 'view/:movieId', // Movie details page
+        path: '/main/view/:movieId?', // Movie details page
         element: <View />,
       },
     ],

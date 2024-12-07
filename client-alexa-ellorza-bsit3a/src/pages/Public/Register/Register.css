@@ -1,27 +1,49 @@
 /* Reset body and html margin/padding */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
-  }
+
   
   /* Main Register Container */
   .register-main-container {
-    overflow: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     position: relative;
+    overflow-y: auto; /* Enables scrolling */
+    background-image: url('../../../images/backgroundpic.jpg');
     background-size: cover;
     background-position: center;
-    /* background: linear-gradient(to bottom right, #ff7f50, #ff6347); */
-    
-  }
+    z-index: 2; /* Ensure this is above the background and overlay */
+}
 
+/* Background Image and Overlay */
+.register-main-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../../../images/backgroundpic.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    z-index: 0; /* Behind all content */
+    pointer-events: none; /* Ensures it doesn't block interactions */
+}
+
+/* Dark Overlay */
+.register-main-container::after {
+    content: '';
+    position: fixed; /* Fixed overlay stays on the viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1; /* Above the blurred background but below content */
+    pointer-events: none; /* Ensures scrollbar and interactions work */
+}
   .register-main-container::-webkit-scrollbar {
     width: 12px; 
     height: 12px; 
@@ -53,19 +75,7 @@ html, body {
     scroll-behavior: smooth;
   }
   
-  /* Background Overlay */
-  .register-main-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;
-    background-position: center;
-    filter: blur(10px);
-    z-index: 1;
-  }
+  
   
   /* Form Container */
   .register-form-container {

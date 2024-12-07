@@ -1,0 +1,63 @@
+/* Container for movie cards */
+.cast-card {
+    position: relative;
+    height: 300px;
+    width: 70%;
+    max-width: 200px; 
+    margin: 10px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .cast-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Styling for the movie poster image */
+  .cast-card-image {
+    width: 200px;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    border-radius: 12px;
+  }
+  
+  .cast-card:hover .cast-card-image {
+    transform: scale(1.1); 
+    filter: brightness(70%);
+  }
+  
+  /* Overlay for movie title */
+  .cast-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7));
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border-radius: 0 0 12px 12px;
+  }
+  
+  .cast-card:hover .cast-card-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .cast-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+  }
+  
