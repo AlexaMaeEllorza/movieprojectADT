@@ -41,7 +41,7 @@ function Main() {
             </li> */}
             <div className="admin-info">
             <span className="user-info">
-              <p className="role">{auth.user.role}:</p>
+              <p className="role">{auth.user.role} :</p>
               <h1 className="name">{auth.user.firstName} {auth.user.lastName}</h1>
             </span>
           </div>
