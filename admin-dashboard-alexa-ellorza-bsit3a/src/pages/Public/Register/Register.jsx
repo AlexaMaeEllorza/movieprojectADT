@@ -34,7 +34,7 @@ function Register() {
     setFormData((prevData) => ({ ...prevData, [field]: event.target.value }));
     setFormErrors((prevErrors) => ({ ...prevErrors, [field]: false }));
     if (field === 'email') {
-      setEmailError(''); // Reset email error when user types
+      setEmailError(''); 
     }
   };
 
@@ -58,12 +58,12 @@ function Register() {
     setStatus('loading');
     const registerData = {
       ...formData,
-      role: 'admin', // Explicitly set the role as admin
+      role: 'admin', 
     };
 
     try {
       const res = await axios.post('/admin/register', registerData);
-      console.log('Response:', res.data); // Debug server response
+      console.log('Response:', res.data); 
       navigate('/');
       alert('Registration successful!');
     } catch (error) {
@@ -123,7 +123,6 @@ function Register() {
                 <span className="register-errors">This field is required</span>
               )}
             </div>
-
             {/* Contact No */}
             <div className="register-form-group">
               <label>Contact No:</label>
@@ -131,12 +130,17 @@ function Register() {
                 type="text"
                 name="contactNo"
                 className="register-modern-textbox"
-                onChange={(e) => handleOnChange(e, 'contactNo')}
+                value={formData.contactNo}
+                onChange={(e) => {
+                  const numericValue = e.target.value.replace(/[^0-9]/g, ''); 
+                  handleOnChange({ target: { value: numericValue } }, 'contactNo');
+                }}
               />
               {formErrors.contactNo && (
                 <span className="register-errors">This field is required</span>
               )}
-            </div> 
+            </div>
+            
             {/* Email */}
             <div className="register-form-group">
               <label>Email:</label>

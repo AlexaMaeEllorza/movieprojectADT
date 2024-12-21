@@ -121,7 +121,7 @@ body {
 
 .movie-lists td {
   color: black;
-  font-size: 14px; /* Retain readable font size */
+  font-size: 14px;
 }
 
 .movie-lists td button {
@@ -130,7 +130,7 @@ body {
 
 
 
-/* Movie Poster */
+
 .movie-poster {
   width: 40px; 
   height: 60px; 

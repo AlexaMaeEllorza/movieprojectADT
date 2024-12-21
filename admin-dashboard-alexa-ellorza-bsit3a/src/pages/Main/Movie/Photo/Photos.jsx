@@ -46,7 +46,7 @@ function Photos() {
   };
 
 
-  //This used for Importing Photos based on tmdbId from Movie
+
   function importDataPhoto() {
     axios({
       method: 'get',
@@ -112,7 +112,7 @@ function Photos() {
     };
 
     if (!validateFields()) {
-      return; // This is for stop if any valid is null
+      return; 
     } else {
       try {
         const dataphoto = {
@@ -226,7 +226,7 @@ function Photos() {
   return (
     <div className='p-photo-box'>
       
-      {/* Move the p-photo-search-box below the p-photo-view-box */}
+
       <div className='p-photo-search-box'>
         <div className='p-parent-container'>
           <div className='p-photo-detail-box'>
@@ -307,7 +307,7 @@ function Photos() {
         </div>
       </div>
   
-      {/* Move the p-photo-view-box up */}
+  
       <div className='p-photo-view-box'>
         {photos !== undefined && photos.length > 0 ? (
           <div className='card-display-photo'>
@@ -330,7 +330,7 @@ function Photos() {
                   </button>
                 </div>
                 <img src={image.url} alt={image.description} style={{ width: '100%' }} className='image-style' 
-                onClick={() => openModal(image)} // Open modal on click
+                onClick={() => openModal(image)}
                 />
                 <div className='container-photo'>
                   <p>{image.description}</p>
@@ -345,7 +345,7 @@ function Photos() {
         )}
       </div>
   
-      {/* Modal for Full-Screen View */}
+
       {isModalOpen && (
         <div className='modal-overlay' onClick={closeModal}>
           <div className='modal-content' onClick={(e) => e.stopPropagation()}>
