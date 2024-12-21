@@ -11,7 +11,7 @@ const Home = () => {
   const { movieList, setMovieList, setMovie } = useMovieContext();
 
   const getMovies = () => {
-    //get the movies from the api or database
+
     axios
       .get('/movies')
       .then((response) => {

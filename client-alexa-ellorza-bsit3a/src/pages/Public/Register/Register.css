@@ -1,7 +1,4 @@
-/* Reset body and html margin/padding */
 
-  
-  /* Main Register Container */
   .register-main-container {
     display: flex;
     flex-direction: column;
@@ -16,7 +13,7 @@
     z-index: 2; /* Ensure this is above the background and overlay */
 }
 
-/* Background Image and Overlay */
+
 .register-main-container::before {
     content: '';
     position: fixed;
@@ -28,21 +25,21 @@
     background-size: cover;
     background-position: center;
     filter: blur(8px);
-    z-index: 0; /* Behind all content */
-    pointer-events: none; /* Ensures it doesn't block interactions */
+    z-index: 0; 
+    pointer-events: none; 
 }
 
-/* Dark Overlay */
+
 .register-main-container::after {
     content: '';
-    position: fixed; /* Fixed overlay stays on the viewport */
+    position: fixed; 
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    z-index: 1; /* Above the blurred background but below content */
-    pointer-events: none; /* Ensures scrollbar and interactions work */
+    z-index: 1; 
+    pointer-events: none;
 }
   .register-main-container::-webkit-scrollbar {
     width: 12px; 
@@ -70,14 +67,13 @@
     background-color: #ffe3cc; 
   }
   
-  /* Smooth scrolling for a modern feel */
+
   .cNc-card-wrapper {
     scroll-behavior: smooth;
   }
   
   
-  
-  /* Form Container */
+
   .register-form-container {
     position: relative;
     padding: 1.5rem 2rem;
@@ -98,7 +94,7 @@
     opacity: 0.95;
   }
   
-  /* Heading */
+
   .h3-register {
     color: #ff6347;
     
@@ -108,7 +104,7 @@
    
   }
   
-  /* Form Group */
+ 
   .register-form-group {
     display: flex;
     flex-direction: column;
@@ -116,7 +112,7 @@
     margin-bottom: 1rem;
   }
   
-  /* Label */
+
   .register-form-group label {
     margin-bottom: 2px;
     font-weight: bold;
@@ -125,7 +121,7 @@
     font-size: 14px;
   }
   
-  /* Input */
+
   .register-modern-textbox {
     padding: 7px 10px;
     margin: 3px 0;
@@ -155,23 +151,20 @@
     color: #ff6347;
   }
   
-  /* Error Messages */
   .register-errors {
     color: #e74c3c;
     margin-top: 3px;
     font-size: 0.875rem;
     font-weight: 600;
   }
-  
-  /* Show/Hide Password */
+
   .show-password {
     color: #333;
     cursor: pointer;
     font-size: 0.9rem;
     margin-top: 6px;
   }
-  
-  /* Submit Button */
+
   .register-submit-container {
     margin-top: 1rem;
     text-align: center;
@@ -201,7 +194,7 @@
     box-shadow: 0 0 0 2px rgba(255, 99, 71, 0.5);
   }
   
-  /* Already Have an Account */
+
   .register-login-container {
     margin-top: 1rem;
     text-align: center;

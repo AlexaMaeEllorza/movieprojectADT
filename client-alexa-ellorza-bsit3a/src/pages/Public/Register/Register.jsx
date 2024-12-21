@@ -131,12 +131,17 @@ function Register() {
                 type="text"
                 name="contactNo"
                 className="register-modern-textbox"
-                onChange={(e) => handleOnChange(e, 'contactNo')}
+                value={formData.contactNo}
+                onChange={(e) => {
+                  const numericValue = e.target.value.replace(/[^0-9]/g, ''); 
+                  handleOnChange({ target: { value: numericValue } }, 'contactNo');
+                }}
               />
               {formErrors.contactNo && (
                 <span className="register-errors">This field is required</span>
               )}
-            </div> 
+            </div>
+            
             {/* Email */}
             <div className="register-form-group">
               <label>Email:</label>

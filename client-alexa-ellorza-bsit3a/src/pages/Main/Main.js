@@ -8,15 +8,15 @@ function Main() {
 
   const handleLogout = useCallback(() => {
     localStorage.removeItem('accessToken');
-    setAccessToken(null); // Update state to trigger re-render
-    navigate('/'); // Redirect to the login page after logout
+    setAccessToken(null); 
+    navigate('/'); 
   }, [navigate]);
 
   useEffect(() => {
     if (!accessToken) {
-      handleLogout(); // Ensure user is logged out if no accessToken
+      handleLogout(); 
     }
-  }, [accessToken, handleLogout]); // Include `handleLogout` as a dependency
+  }, [accessToken, handleLogout]); 
 
   return (
     <div className='Main'>
@@ -24,11 +24,11 @@ function Main() {
         <div className='navigation'>
           <ul>
             <li>
-              <button onClick={() => navigate('/main')}>Movies</button> {/* Navigate to '/main' */}
+              <button onClick={() => navigate('/main')}>Movies</button> 
             </li>
             {accessToken && (
               <li className='logout'>
-                <button onClick={handleLogout}>Logout</button> {/* Trigger logout */}
+                <button onClick={handleLogout}>Logout</button> 
               </li>
             )}
           </ul>

@@ -1,4 +1,4 @@
-/* Main Login Container */
+
 .loginmain-container {
   overflow: hidden;
   display: flex;
@@ -12,7 +12,6 @@
   margin:  auto;
 }
 
-/* Background Image and Overlay */
 .loginmain-container::before {
   content: '';
   position: absolute;
@@ -27,7 +26,6 @@
   z-index: 1;
 }
 
-/* Heading Styles */
 .h3-login {
   color: #ff6347;
   margin-bottom: 1.5rem;
@@ -38,13 +36,13 @@
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Password Show/Hide Icon */
+
 div.show-password {
   color: #333;
   cursor: pointer;
 }
 
-/* Form Container Styles */
+
 .loginform-container {
   position:relative;
   padding: 2rem 2.5rem;
@@ -64,7 +62,7 @@ div.show-password {
   opacity: 0.95;
 }
 
-/* Form Group Styles */
+
 .loginform-group {
   display: flex;
   flex-direction: column;
@@ -72,7 +70,6 @@ div.show-password {
   margin-bottom: 1rem;
 }
 
-/* Label Styles */
 .loginform-group label {
   margin-bottom: 6px;
   font-weight: bold;
@@ -80,7 +77,6 @@ div.show-password {
   font-size: 0.95rem;
 }
 
-/* Input Field Styles */
 .loginmodern-textbox {
   padding: 14px 18px;
   margin: 6px 0;
@@ -110,7 +106,6 @@ div.show-password {
   color: #ff6347;
 }
 
-/* Error Message Styles */
 .loginerrors {
   color: #e74c3c;
   margin-top: 6px;
@@ -118,7 +113,7 @@ div.show-password {
   font-weight: 600;
 }
 
-/* Submit Button Styles */
+
 .loginsubmit-container {
   margin-top: 1.5rem;
   text-align: center;
@@ -148,7 +143,6 @@ div.show-password {
   box-shadow: 0 0 0 2px rgba(255, 99, 71, 0.5);
 }
 
-/* Additional Styles */
 .register-container {
   margin-top: 1rem;
   text-align: center;
@@ -156,7 +150,6 @@ div.show-password {
   color: #555;
 }
 
-/* Alert Message Styles */
 .alert-box {
   padding: 1rem;
   border-radius: 8px;

@@ -1,4 +1,4 @@
-/* Featured Movie Container */
+
 .featured-movie-container {
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
 }
 
-/* Page Title */
+
 .page-title {
   font-size: 4.5rem;
   color: #ffcc5c; 
@@ -21,7 +21,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
-/* List Container */
+
 .list-container {
   display: flex;
   flex-wrap: wrap;
@@ -31,7 +31,7 @@
   padding: 1rem;
 }
 
-/* Featured List Container */
+
 .featured-list-container {
   width: 100%;
   
@@ -41,7 +41,7 @@
   border-radius: 10px; 
 }
 
-/* Featured Backdrop */
+
 .featured-backdrop {
   height: 70%;
   width: 100%;
@@ -53,10 +53,6 @@
   border-radius: 10px;
 }
 
-/* Hover effect for featured backdrop */
-
-
-/* Movie Title on Featured Backdrop */
 .featured-movie-title {
   font-weight: bold;
   font-size: 3rem;
@@ -70,7 +66,7 @@
   text-transform: capitalize;
 }
 
-/* Responsiveness - for smaller screens */
+
 @media (max-width: 768px) {
   .page-title {
     font-size: 3rem;
